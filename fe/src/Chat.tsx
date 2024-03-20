@@ -73,7 +73,7 @@ const Chat = () => {
 
   return (
     <div className="join">
-      <h4 className="subtitle">Join tahe Chat:</h4>
+      <h4 className="subtitle">Join the Chat:</h4>
       <button onClick={joinChat}>Enter</button>
       <input
         disabled={joined}
