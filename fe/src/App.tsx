@@ -1,8 +1,11 @@
+import React from 'react';
 import Chat from './Chat';
 import './App.css';
 
-const title = () => {
-  return (<h2 className="title">Prisonner's Dilemma</h2>)
+type Props = {}
+
+const title: React.FC<Props> = () => {
+  return (<h2 className="title">Prisoner's Dilemma</h2>)
 }
 
 const App = () => {

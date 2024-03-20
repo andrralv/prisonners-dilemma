@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  fe:
+    build:
+      context: ./fe
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3001:3001"
+    environment:
+      - VITE_PORT=3001
+      - VITE_USE_HMR=true
+      - CHOKIDAR_USEPOLLING=true
+    volumes:
+      - /app/node_modules
+      - ./fe:/app
+    depends_on:
+      - be
+
+  be:
+    build:
+      context: ./be
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3002:3002"  # Expose Express app on port 3002
+      - "3003:3003"  # Expose Socket.IO server on port 3003
+    environment:
+      - PORT=3002
+    volumes:
+      - /app/node_modules
+      - ./be:/app

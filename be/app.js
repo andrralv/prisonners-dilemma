@@ -24,8 +24,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter.router);
 app.use('/users', usersRouter);
 
-indexRouter.server.listen(3001, () => {
-  console.log('Socket server running on port 3001')
+indexRouter.server.listen(3003, () => {
+  console.log('Socket server running on port 3003')
 });
 
 // catch 404 and forward to error handler

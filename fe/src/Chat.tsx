@@ -14,7 +14,7 @@ const Chat = () => {
   const [socket, setSocket] = useState<Socket | null>(null);
 
   useEffect(() => {
-    const newSocket = io('http://localhost:3001');
+    const newSocket = io('http://localhost:3003');
 
     // Listen for 'message' events from the server
     newSocket.on('message', message => {
@@ -65,7 +65,7 @@ const Chat = () => {
       <div className="lobby-container">
         <h4 className="subtitle">Connected Players:</h4>
         <div className={'lobby'}>
-          {users && users.map(user =>  <div key={user.name}>{user.name}</div>)}
+          {users && users.map(user => user.name && <div key={user.name}>{user.name}</div>)}
         </div>
       </div>
     )
@@ -73,7 +73,7 @@ const Chat = () => {
 
   return (
     <div className="join">
-      <h4 className="subtitle">Join the Chat:</h4>
+      <h4 className="subtitle">Join tahe Chat:</h4>
       <button onClick={joinChat}>Enter</button>
       <input
         disabled={joined}
